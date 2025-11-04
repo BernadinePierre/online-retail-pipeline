@@ -1,0 +1,4 @@
+job_id,run_timestamp,total_rows,total_columns,memory_usage_mb,completeness_score,duplicate_rows,negative_quantities,invalid_prices,zero_prices,missing_customer_ids,missing_descriptions,missing_customer_pct,missing_description_pct,cancellation_count,extreme_quantities_count
+292b799b,2025-11-04 07:56:26.152549,541909,8,173.12,96.85,5268,10624,2517,2515,135080,1454,24.93,0.27,9288,5
+54a92f74,2025-11-04 07:59:22.410608,541909,8,173.12,96.85,5268,10624,2517,2515,135080,1454,24.93,0.27,9288,5
+9ea340e6,2025-11-04 08:01:35.093892,541909,8,173.12,96.85,5268,10624,2517,2515,135080,1454,24.93,0.27,9288,5
