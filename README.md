@@ -4,7 +4,7 @@
 This project implements an end-to-end ETL pipeline for processing online retail transaction data. The pipeline extracts data from the UCI Machine Learning Repository, applies comprehensive data quality rules, and loads it into a dimensional model optimized for analytical queries.
 
 **Author**: Bernadine Pierre 
-**Date**: November 3, 2025  
+**Date**: November 4, 2025  
 **Technology Stack**: Python, Pandas, SQL, Parquet
 
 ---
@@ -35,39 +35,6 @@ UCI ML Repository → Data Ingestion → Data Profiling → Data Cleaning → Di
 3. **Data Cleaning** (`data_cleaning.py`) - Transformation and validation logic
 4. **Data Modelling** (`data_modelling.py`) - Star schema generation
 5. **Main Pipeline** (`main_pipeline.py`) - End-to-end orchestration
-
----
-
-## Project Structure
-
-online_retail_pipeline/
-├── data/
-│   ├── logs/                    # Pipeline execution logs
-│   ├── model/                   # Final data model outputs
-│   │   ├── retail_analytics.db  # SQLite database
-│   │   ├── dim_customer/        # Customer dimension (Parquet)
-│   │   ├── dim_date/            # Date dimension (Parquet)
-│   │   ├── dim_product/         # Product dimension (Parquet)
-│   │   └── fact_sales/          # Sales facts (Parquet)
-│   ├── processed/               # Cleaned intermediate data
-│   └── profiling/               # Data quality artifacts
-│       ├── profiling_history.csv # Historical quality metrics
-│       └── reports/             # Detailed profiling reports
-├── docs/
-│   ├── presentation/            # Project presentations
-│   ├── dev_notebook.ipynb       # Development & exploration notebook
-│   ├── data_dictionary.md       # Comprehensive data documentation
-│   ├── business_transformation_rules.md # Business logic documentation
-│   ├── architecture_diagram.png # System architecture
-│   └── online_retail_schema.png # Data model schema
-├── src/
-│   ├── main_pipeline.py         # Main orchestration script
-│   ├── data_ingestion.py        # Data acquisition from UCI
-│   ├── data_profiling.py        # Data quality assessment
-│   ├── data_cleaning.py         # Data transformation & validation
-│   └── data_modeling.py         # Dimensional model generation
-├── README.md                    # This file
-└── requirements.txt             # Python dependencies
 
 ---
 
@@ -375,11 +342,6 @@ Automated validation catches issues early
 
 ---
 
-## Testing
-
-
----
-
 ## Troubleshooting
 
 ### Common Issues
@@ -412,4 +374,4 @@ For questions or issues with this pipeline:
 
 ---
 
-**Last Updated**: Novemeber 3, 2025
+**Last Updated**: Novemeber 4, 2025
