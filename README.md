@@ -1,7 +1,7 @@
 # Online Retail Data Pipeline
 
 ## Overview
-This project implements an end-to-end ETL pipeline for processing online retail transaction data. The pipeline extracts data from the UCI Machine Learning Repository, applies comprehensive data quality rules, and loads it into a dimensional model optimized for analytical queries.
+This project implements an end-to-end ETL pipeline for processing online retail transaction data. The pipeline extracts data from the UCI Machine Learning Repository, applies comprehensive data quality rules, and loads it into a dimensional model optimised for analytical queries.
 
 **Author**: Bernadine Pierre 
 **Date**: November 4, 2025  
