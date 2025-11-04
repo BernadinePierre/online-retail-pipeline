@@ -313,21 +313,21 @@ This notebook includes:
 
 ### Additional Documentation
 
-Data Dictionary - Comprehensive field definitions and business meanings
+- Data Dictionary (`docs/data_dictionary.md`): Comprehensive field definitions and business meanings
 
-Business Transformation Rules - Detailed business logic and validation rules
+- Business Transformation Rules (`docs/transformation_rules.md`): Detailed business logic and validation rules
 
-Development Notebook (docs/dev_notebook.ipynb) - Interactive exploration and analysis
+ -Development Notebook (`docs/dev_notebook.ipynb`): Interactive exploration and analysis
 
 ---
 
 ## Design Decisions & Trade-offs
 
 ### What Worked Well
-Star schema simplicity enables fast analytical queries  
-High data quality pass rate (98.56%) shows reliable source  
-Surrogate keys provide flexibility for future changes  
-Automated validation catches issues early  
+- Star schema simplicity enables fast analytical queries  
+- High data quality pass rate (98.56%) shows reliable source  
+- Surrogate keys provide flexibility for future changes  
+- Automated validation catches issues early  
 
 ### Trade-offs Made
 **File-based storage**: chosen for simplicity vs database concurrency  
