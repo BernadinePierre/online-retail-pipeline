@@ -317,7 +317,7 @@ This notebook includes:
 
 - Business Transformation Rules (`docs/transformation_rules.md`): Detailed business logic and validation rules
 
- -Development Notebook (`docs/dev_notebook.ipynb`): Interactive exploration and analysis
+ - Development Notebook (`docs/dev_notebook.ipynb`): Interactive exploration and analysis
 
 ---
 
