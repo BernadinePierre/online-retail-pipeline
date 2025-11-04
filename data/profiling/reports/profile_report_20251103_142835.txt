@@ -1,0 +1,72 @@
+==================================================
+DATA PROFILE REPORT - Job ID: 369c928f
+Generated: 2025-11-03 14:28:35
+==================================================
+
+DATASET OVERVIEW
+--------------------------------------------------
+Total Rows: 541,909
+Total Columns: 8
+Memory Usage: 173.12 MB
+Overall Completeness Score: 96.85%
+
+COLUMN DATA TYPES
+--------------------------------------------------
+InvoiceNo: object
+StockCode: object
+Description: object
+Quantity: int64
+InvoiceDate: object
+UnitPrice: float64
+CustomerID: float64
+Country: object
+
+COMPLETENESS ANALYSIS
+--------------------------------------------------
+Missing Values by Column:
+  InvoiceNo: 0 (0.0%)
+  StockCode: 0 (0.0%)
+  Description: 1,454 (0.27%)
+  Quantity: 0 (0.0%)
+  InvoiceDate: 0 (0.0%)
+  UnitPrice: 0 (0.0%)
+  CustomerID: 135,080 (24.93%)
+  Country: 0 (0.0%)
+
+DATA QUALITY ISSUES
+--------------------------------------------------
+Duplicate Rows: 5,268
+Negative Quantities: 10,624
+Zero Quantities: 0
+Negative Prices: 2,517
+Zero Prices: 2,515
+Missing Customer IDs: 135,080
+Missing Descriptions: 1,454
+
+BUSINESS LOGIC CONSTRAINTS
+--------------------------------------------------
+Constraint: Cancellation transactions
+  Count: 9,288
+  Action Needed: Flag as cancellations but keep for refund analysis
+
+Constraint: Missing CustomerIDs
+  Count: 135,080
+  Action Needed: Assign surrogate key (0) for unknown customers
+  Percentage: 24.93%
+
+Constraint: Negative Quantities
+  Count: 10,624
+  Action Needed: Validate against cancellation flag; keep legitimate returns
+
+Constraint: Invalid Prices (≤ 0)
+  Count: 2,517
+  Action Needed: Exclude from fact table as they represent data errors
+
+Constraint: Extreme Quantities
+  Count: 5
+  Action Needed: Flag for business review but keep for wholesale analysis
+
+Constraint: Missing Product Descriptions
+  Count: 1,454
+  Action Needed: Fill with "Unknown Product" placeholder
+

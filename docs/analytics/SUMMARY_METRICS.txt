@@ -1,0 +1,21 @@
+============================================================
+ONLINE RETAIL DATA WAREHOUSE - KEY METRICS
+Generated: 2025-10-31 01:07:31.657505
+============================================================
+
+REVENUE METRICS:
+  Total Revenue: £10,642,110.80
+  Average Order Value: £533.17
+  Total Orders: 19,960
+  Total Line Items: 524,878
+
+CUSTOMER METRICS:
+  Unique Known Customers: 4,371
+  Countries Served: 37
+
+PRODUCT METRICS:
+  Unique Products: 3,938
+
+DATA QUALITY:
+  Pass Rate: 98.56%
+  Cancellation Rate: 1.73%

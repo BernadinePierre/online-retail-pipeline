@@ -1,0 +1,94 @@
+2025-11-02 22:55:10 - INFO - Pipeline run initialised with Job ID: d2d176df
+2025-11-02 22:55:10 - INFO - ==================================================
+2025-11-02 22:55:10 - INFO - ONLINE RETAIL DATA PIPELINE - STARTING
+2025-11-02 22:55:10 - INFO - ==================================================
+2025-11-02 22:55:10 - INFO - ==================================================
+2025-11-02 22:55:10 - INFO - STEP 1: DATA INGESTION
+2025-11-02 22:55:10 - INFO - ==================================================
+2025-11-02 22:55:11 - INFO - ==================================================
+2025-11-02 22:55:11 - INFO - DATA INGESTION PROCESS
+2025-11-02 22:55:11 - INFO - ==================================================
+2025-11-02 22:55:11 - INFO - Initiated data ingestion...
+2025-11-02 22:55:11 - INFO - Attempting UCI ML Repo API...
+2025-11-02 22:55:26 - INFO - UCI API successful: 541,909 rows, 8 columns
+2025-11-02 22:55:28 - INFO - Raw data saved: data/raw/Online_Retail_raw_20251102_225526.csv
+2025-11-02 22:55:28 - INFO - ✓ Data ingestion completed successfully
+2025-11-02 22:55:28 - INFO - ==================================================
+2025-11-02 22:55:28 - INFO - STEP 2: DATA PROFILING
+2025-11-02 22:55:28 - INFO - ==================================================
+2025-11-02 22:55:28 - INFO - Generating data quality metrics...
+2025-11-02 22:55:28 - INFO - Generating data quality summary...
+2025-11-02 22:55:29 - INFO - ✓ Profile report saved to: data/profiling/reports/profile_report_20251102_225529.txt
+2025-11-02 22:55:29 - INFO - ✓ Updated profiling history with comprehensive metrics for job: d2d176df
+2025-11-02 22:55:29 - INFO - ==================================================
+2025-11-02 22:55:29 - INFO - DATA QUALITY ASSESSMENT REPORT
+2025-11-02 22:55:29 - INFO - ==================================================
+2025-11-02 22:55:29 - INFO - Dataset Overview:
+2025-11-02 22:55:29 - INFO -   Rows: 541,909
+2025-11-02 22:55:29 - INFO -   Columns: 8
+2025-11-02 22:55:29 - INFO -   Completeness: 96.85%
+2025-11-02 22:55:29 - INFO - Key Data Quality Issues:
+2025-11-02 22:55:29 - INFO -   Missing CustomerIDs: 135,080
+2025-11-02 22:55:29 - INFO -   Duplicate Rows: 5,268
+2025-11-02 22:55:29 - INFO -   Invalid Prices: 2,517
+2025-11-02 22:55:29 - INFO - Business Constraints Identified: 6
+2025-11-02 22:55:29 - INFO - ✓ Data profiling completed successfully
+2025-11-02 22:55:29 - INFO - ✓ Report saved: data/profiling/reports/profile_report_20251102_225529.txt
+2025-11-02 22:55:29 - INFO - ==================================================
+2025-11-02 22:55:29 - INFO - STEP 3: DATA CLEANING & TRANSFORMATION
+2025-11-02 22:55:29 - INFO - ==================================================
+2025-11-02 22:55:29 - INFO - Starting data cleaning process...
+2025-11-02 22:55:29 - INFO - Converting InvoiceDate to datetime...
+2025-11-02 22:55:29 - INFO - Adding cancellation flags...
+2025-11-02 22:55:29 - INFO -   Found 9,288 cancelled transactions
+2025-11-02 22:55:29 - INFO - Handling missing CustomerIDs...
+2025-11-02 22:55:29 - INFO -   Found 135,080 records with missing CustomerID
+2025-11-02 22:55:29 - INFO - Handling missing descriptions...
+2025-11-02 22:55:29 - INFO -   Found 1,454 missing descriptions
+2025-11-02 22:55:29 - INFO - Removing duplicates...
+2025-11-02 22:55:30 - INFO -   Removed 5,268 duplicate rows
+2025-11-02 22:55:30 - INFO - Filtering invalid prices...
+2025-11-02 22:55:30 - INFO -   Found 2,512 records with invalid prices
+2025-11-02 22:55:30 - INFO -   Excluded 2,512 records
+2025-11-02 22:55:30 - INFO - Calculating line totals...
+2025-11-02 22:55:30 - INFO - Adding data quality flags...
+2025-11-02 22:55:30 - INFO -   Flagged 4 high-quantity records for review
+2025-11-02 22:55:30 - INFO - Extracting date components...
+2025-11-02 22:55:30 - INFO - Standardising country names...
+2025-11-02 22:55:30 - INFO - Data cleaning completed successfully
+2025-11-02 22:55:30 - INFO - Initial rows: 541,909
+2025-11-02 22:55:30 - INFO - Final rows: 534,129
+2025-11-02 22:55:30 - INFO - Pass rate: 98.56%
+2025-11-02 22:55:33 - INFO - ✓ Cleaned data saved: data/processed/cleaned_data_20251102_2255.csv
+2025-11-02 22:55:33 - INFO - ==================================================
+2025-11-02 22:55:33 - INFO - STEP 4: DATA modelling
+2025-11-02 22:55:33 - INFO - ==================================================
+2025-11-02 22:55:34 - INFO - Creating dimensional star schema...
+2025-11-02 22:55:34 - INFO - Creating dim_date...
+2025-11-02 22:55:34 - INFO -   Created 374 date records
+2025-11-02 22:55:34 - INFO - Creating dim_product...
+2025-11-02 22:55:34 - INFO -   Created 3,938 product records
+2025-11-02 22:55:34 - INFO - Creating dim_customer...
+2025-11-02 22:55:34 - INFO -   Created 4,372 customer records
+2025-11-02 22:55:34 - INFO - Creating fact_sales...
+2025-11-02 22:55:36 - INFO -   Created 534,129 transaction records
+2025-11-02 22:55:36 - INFO - Ensuring correct data types...
+2025-11-02 22:55:36 - INFO -   Data types ensured
+2025-11-02 22:55:36 - INFO - Modelling completed successfully
+2025-11-02 22:55:36 - INFO -   dim_date: 374 rows
+2025-11-02 22:55:36 - INFO -   dim_product: 3,938 rows
+2025-11-02 22:55:36 - INFO -   dim_customer: 4,372 rows
+2025-11-02 22:55:36 - INFO -   fact_sales: 534,129 rows
+2025-11-02 22:55:36 - INFO - Saving dimensional model as parquet files...
+2025-11-02 22:55:39 - INFO -   Saved all tables to data/model/
+2025-11-02 22:55:39 - INFO - Saving to SQLite database: retail_analytics.db
+2025-11-02 22:55:48 - INFO -   All tables saved to SQLite database
+2025-11-02 22:55:48 - INFO - ✓ Dimensional model saved to: data/model/retail_analytics.db
+2025-11-02 22:55:48 - INFO - ==================================================
+2025-11-02 22:55:48 - INFO - PIPELINE EXECUTION SUMMARY
+2025-11-02 22:55:48 - INFO - ==================================================
+2025-11-02 22:55:48 - INFO - ✓ Ingested data: data/raw/Online_Retail_raw_20251102_225526.csv
+2025-11-02 22:55:48 - INFO - ✓ Profiling history updated: data/profiling/profiling_history.csv
+2025-11-02 22:55:48 - INFO - ✓ Cleaned data: data/processed/cleaned_data_20251102_2255.csv
+2025-11-02 22:55:48 - INFO - ✓ Database with schema: data/model/retail_analytics.db
+2025-11-02 22:55:48 - INFO - Pipeline completed successfully

@@ -1,0 +1,92 @@
+2025-11-02 17:29:11 - INFO - Pipeline run initialised with Job ID: f719451c
+2025-11-02 17:29:11 - INFO - ==================================================
+2025-11-02 17:29:11 - INFO - ONLINE RETAIL DATA PIPELINE - STARTING
+2025-11-02 17:29:11 - INFO - ==================================================
+2025-11-02 17:29:11 - INFO - ==================================================
+2025-11-02 17:29:11 - INFO - STEP 1: DATA INGESTION
+2025-11-02 17:29:11 - INFO - ==================================================
+2025-11-02 17:29:11 - INFO - ==================================================
+2025-11-02 17:29:11 - INFO - DATA INGESTION PROCESS
+2025-11-02 17:29:11 - INFO - ==================================================
+2025-11-02 17:29:11 - INFO - Initiated data ingestion...
+2025-11-02 17:29:11 - INFO - Attempting UCI ML Repo API...
+2025-11-02 17:29:59 - INFO - UCI API successful: 541,909 rows, 8 columns
+2025-11-02 17:30:10 - INFO - Raw data saved: data/raw/Online_Retail_raw_20251102_172959.csv
+2025-11-02 17:30:11 - INFO - ✓ Data ingestion completed successfully
+2025-11-02 17:30:11 - INFO - ==================================================
+2025-11-02 17:30:11 - INFO - STEP 2: DATA PROFILING
+2025-11-02 17:30:11 - INFO - ==================================================
+2025-11-02 17:30:11 - INFO - Generating data quality metrics...
+2025-11-02 17:30:11 - INFO - Generating data quality summary...
+2025-11-02 17:30:14 - INFO - ✓ Updated profiling history with comprehensive metrics for job: f719451c
+2025-11-02 17:30:14 - INFO - ==================================================
+2025-11-02 17:30:14 - INFO - DATA QUALITY ASSESSMENT REPORT
+2025-11-02 17:30:14 - INFO - ==================================================
+2025-11-02 17:30:14 - INFO - Dataset Overview:
+2025-11-02 17:30:14 - INFO -   Rows: 541,909
+2025-11-02 17:30:14 - INFO -   Columns: 8
+2025-11-02 17:30:14 - INFO -   Completeness: 96.85%
+2025-11-02 17:30:14 - INFO - Key Data Quality Issues:
+2025-11-02 17:30:14 - INFO -   Missing CustomerIDs: 135,080
+2025-11-02 17:30:14 - INFO -   Duplicate Rows: 5,268
+2025-11-02 17:30:14 - INFO -   Invalid Prices: 2,517
+2025-11-02 17:30:14 - INFO - Business Constraints Identified: 6
+2025-11-02 17:30:14 - INFO - ✓ Data profiling completed successfully
+2025-11-02 17:30:14 - INFO - ==================================================
+2025-11-02 17:30:14 - INFO - STEP 3: DATA CLEANING & TRANSFORMATION
+2025-11-02 17:30:14 - INFO - ==================================================
+2025-11-02 17:30:14 - INFO - Starting data cleaning process...
+2025-11-02 17:30:14 - INFO - Converting InvoiceDate to datetime...
+2025-11-02 17:30:14 - INFO - Adding cancellation flags...
+2025-11-02 17:30:14 - INFO -   Found 9,288 cancelled transactions
+2025-11-02 17:30:14 - INFO - Handling missing CustomerIDs...
+2025-11-02 17:30:14 - INFO -   Found 135,080 records with missing CustomerID
+2025-11-02 17:30:14 - INFO - Handling missing descriptions...
+2025-11-02 17:30:14 - INFO -   Found 1,454 missing descriptions
+2025-11-02 17:30:14 - INFO - Removing duplicates...
+2025-11-02 17:30:15 - INFO -   Removed 5,268 duplicate rows
+2025-11-02 17:30:15 - INFO - Filtering invalid prices...
+2025-11-02 17:30:15 - INFO -   Found 2,512 records with invalid prices
+2025-11-02 17:30:15 - INFO -   Excluded 2,512 records
+2025-11-02 17:30:15 - INFO - Calculating line totals...
+2025-11-02 17:30:15 - INFO - Adding data quality flags...
+2025-11-02 17:30:15 - INFO -   Flagged 4 high-quantity records for review
+2025-11-02 17:30:15 - INFO - Extracting date components...
+2025-11-02 17:30:16 - INFO - Standardizing country names...
+2025-11-02 17:30:16 - INFO - Data cleaning completed successfully
+2025-11-02 17:30:16 - INFO - Initial rows: 541,909
+2025-11-02 17:30:16 - INFO - Final rows: 534,129
+2025-11-02 17:30:16 - INFO - Pass rate: 98.56%
+2025-11-02 17:30:25 - INFO - ✓ Cleaned data saved: data/processed/cleaned_data_20251102_1730.csv
+2025-11-02 17:30:25 - INFO - ==================================================
+2025-11-02 17:30:25 - INFO - STEP 4: DATA MODELING
+2025-11-02 17:30:25 - INFO - ==================================================
+2025-11-02 17:30:25 - INFO - Creating dimensional star schema...
+2025-11-02 17:30:25 - INFO - Creating dim_date...
+2025-11-02 17:30:25 - INFO -   Created 374 date records
+2025-11-02 17:30:25 - INFO - Creating dim_product...
+2025-11-02 17:30:25 - INFO -   Created 3,938 product records
+2025-11-02 17:30:25 - INFO - Creating dim_customer...
+2025-11-02 17:30:25 - INFO -   Created 4,372 customer records
+2025-11-02 17:30:25 - INFO - Creating fact_sales...
+2025-11-02 17:30:35 - INFO -   Created 534,129 transaction records
+2025-11-02 17:30:35 - INFO - Ensuring correct data types...
+2025-11-02 17:30:35 - INFO -   Data types ensured
+2025-11-02 17:30:35 - INFO - Modeling completed successfully
+2025-11-02 17:30:35 - INFO -   dim_date: 374 rows
+2025-11-02 17:30:35 - INFO -   dim_product: 3,938 rows
+2025-11-02 17:30:35 - INFO -   dim_customer: 4,372 rows
+2025-11-02 17:30:35 - INFO -   fact_sales: 534,129 rows
+2025-11-02 17:30:35 - INFO - Saving dimensional model as parquet files...
+2025-11-02 17:30:36 - INFO -   Saved all tables to data/model/
+2025-11-02 17:30:36 - INFO - Saving to SQLite database: retail_analytics.db
+2025-11-02 17:31:26 - INFO -   All tables saved to SQLite database
+2025-11-02 17:31:26 - INFO - ✓ Dimensional model saved to: data/model/retail_analytics.db
+2025-11-02 17:31:26 - INFO - ==================================================
+2025-11-02 17:31:26 - INFO - PIPELINE EXECUTION SUMMARY
+2025-11-02 17:31:26 - INFO - ==================================================
+2025-11-02 17:31:26 - INFO - ✓ Ingested data: data/raw/Online_Retail_raw_20251102_172959.csv
+2025-11-02 17:31:26 - INFO - ✓ Profiling history updated: data/profiling/profiling_history.csv
+2025-11-02 17:31:26 - INFO - ✓ Cleaned data: data/processed/cleaned_data_20251102_1730.csv
+2025-11-02 17:31:26 - INFO - ✓ Database with schema: data/model/retail_analytics.db
+2025-11-02 17:31:26 - INFO - Pipeline completed successfully
